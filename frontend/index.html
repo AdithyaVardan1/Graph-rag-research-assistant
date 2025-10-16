@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graph RAG Assistant</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js" defer></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h2>🚀 Research Assistant</h2>
+            <input type="text" id="topic-input" placeholder="e.g., network security">
+            <button id="build-btn">Build Knowledge Graph</button>
+            
+            <div class="agent-panel">
+                <h3>Agent Actions</h3>
+                <p id="selection-info">Select papers in the graph to activate.</p>
+                <button id="summarize-btn" disabled>Summarize Selected</button>
+                <button id="hypothesize-btn" disabled>Generate Hypothesis</button>
+                
+                <div class="chat-interface">
+                    <input type="text" id="chat-input" placeholder="Chat with selected papers..." disabled>
+                    <button id="chat-btn" disabled>Send</button>
+                </div>
+            </div>
+        </div>
+        <div class="main-content">
+            <div id="graph-container">
+                <div id="message-box">Enter a topic to begin...</div>
+            </div>
+            <div id="output-container" style="display: none;">
+                <pre id="output-box"></pre>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
