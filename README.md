@@ -2,7 +2,7 @@
 
 This project is a multi-agent system built on a Graph RAG architecture to accelerate literature reviews and scientific discovery. Instead of a simple list of documents, it generates an interactive knowledge graph that reveals the deep semantic relationships between full-text research papers.
 
-![Graph RAG UI Screenshot](frontend/image_a08068.png)
+![Graph RAG UI Screenshot](frontend/screenshot.png)
 
 ---
 
@@ -36,7 +36,7 @@ Follow these steps to run the project locally.
 
 ```bash
 # Clone the repository
-git clone [https://github.com/your-username/your-repo-name.git](https://github.com/your-username/your-repo-name.git)
+git clone [https://github.com/AdithyaVardan1/Graph-rag-research-assistant.git](https://github.com/AdithyaVardan1/Graph-rag-research-assistant.git)
 cd your-repo-name
 
 # Create and activate a virtual environment
