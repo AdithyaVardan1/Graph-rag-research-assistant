@@ -1,13 +1,10 @@
-# Environment variables - Contains secret keys!
+
 .env
 
-# Python generated files
 __pycache__/
 *.pyc
 
-# FAISS index and data directory - This is generated on run
 data/
 
-# IDE and OS files
 .vscode/
 .DS_Store
