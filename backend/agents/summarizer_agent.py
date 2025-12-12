@@ -25,11 +25,13 @@ def summarize_papers(papers: List[Dict]) -> str:
 
     context = build_context_from_papers(papers)
     
-    prompt = f"""Based on the following research papers, provide a concise, consolidated summary of the key findings and themes.
+    prompt = f"""You are summarizing exactly {len(papers)} research paper(s). 
+Provide a concise, consolidated summary of the key findings and themes from ONLY these {len(papers)} paper(s).
+Do not reference or make up papers that are not provided.
 
 {context}
 
-Consolidated Summary:"""
+Consolidated Summary of the {len(papers)} paper(s) above:"""
 
     try:
         return generate_completion(prompt, SYSTEM_PROMPT)

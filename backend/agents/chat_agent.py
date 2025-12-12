@@ -76,9 +76,12 @@ def chat_with_papers(papers: List[Dict], query: str, use_correction: bool = True
         if not check_context_relevance(context, query):
             context_note = "\n\n[Note: The retrieved context may not fully address your question. The answer below is based on the best available information from the selected papers.]"
     
-    prompt = f"""Answer the user's question based *only* on the provided context from the research papers.
-If the answer is not found in the context, say "The answer to that question is not found in the selected papers."
-When possible, mention which paper(s) support your answer.
+    prompt = f"""You have been given context from exactly {len(papers)} research paper(s).
+Answer the user's question based ONLY on these {len(papers)} paper(s) provided below.
+Do NOT make up or reference any papers that are not in the context.
+If the answer is not found in these papers, say "The answer to that question is not found in the selected papers."
+
+IMPORTANT: Only reference papers that appear in the context below. There are exactly {len(papers)} papers.
 
 Context from Papers:
 {context}
@@ -86,7 +89,7 @@ Context from Papers:
 User's Question:
 {query}
 
-Answer:"""
+Answer (using only the {len(papers)} papers above):"""
 
     try:
         response = generate_completion(prompt, SYSTEM_PROMPT)
