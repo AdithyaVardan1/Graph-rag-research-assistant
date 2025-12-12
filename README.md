@@ -229,4 +229,4 @@ MIT License - see [LICENSE](LICENSE) for details.
 
 ---
 
-Built with by [Adithya Vardan](https://github.com/AdithyaVardan1)
+Built by [Adithya Vardan](https://github.com/AdithyaVardan1)
