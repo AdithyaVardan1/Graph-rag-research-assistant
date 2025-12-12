@@ -1,6 +1,6 @@
 # GraphRAG Research Assistant
 
-🧠 **AI-powered research assistant with GraphRAG** - explore and analyze academic papers through knowledge graphs with advanced retrieval techniques.
+**AI-powered research assistant with GraphRAG** - explore and analyze academic papers through knowledge graphs with advanced retrieval techniques.
 
 ![Version](https://img.shields.io/badge/version-2.0.0-blue)
 ![Python](https://img.shields.io/badge/python-3.10+-green)
@@ -31,7 +31,7 @@
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 - Python 3.10+
@@ -68,7 +68,7 @@ Open http://localhost:8000 in your browser.
 
 ---
 
-## 📖 How It Works
+## How It Works
 
 ### GraphRAG Pipeline
 
@@ -108,7 +108,7 @@ Open http://localhost:8000 in your browser.
 
 ---
 
-## 🔧 API Endpoints
+## API Endpoints
 
 | Endpoint | Method | Description |
 |----------|--------|-------------|
@@ -120,7 +120,7 @@ Open http://localhost:8000 in your browser.
 
 ---
 
-## 🏗️ Project Structure
+## Project Structure
 
 ```
 Graph-rag-research-assistant/
@@ -151,7 +151,7 @@ Graph-rag-research-assistant/
 
 ---
 
-## 🎯 Usage
+## Usage
 
 1. **Enter a research topic** in the search box (e.g., "transformer attention")
 2. **Adjust papers count** using the slider (5-50)
@@ -168,7 +168,7 @@ Graph-rag-research-assistant/
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Component | Technology |
 |-----------|------------|
@@ -181,7 +181,7 @@ Graph-rag-research-assistant/
 
 ---
 
-## 📝 Environment Variables
+## Environment Variables
 
 | Variable | Required | Default | Description |
 |----------|----------|---------|-------------|
@@ -193,7 +193,7 @@ Graph-rag-research-assistant/
 
 ---
 
-## 🚢 Deployment
+## Deployment
 
 ### Vercel (Recommended)
 
@@ -214,7 +214,7 @@ For better Python/FAISS support, consider:
 
 ---
 
-## 📚 Documentation
+## Documentation
 
 See [TECHNICAL_DEEP_DIVE.md](TECHNICAL_DEEP_DIVE.md) for:
 - Detailed explanation of every component
@@ -223,7 +223,7 @@ See [TECHNICAL_DEEP_DIVE.md](TECHNICAL_DEEP_DIVE.md) for:
 
 ---
 
-## 📄 License
+## License
 
 MIT License - see [LICENSE](LICENSE) for details.
 
