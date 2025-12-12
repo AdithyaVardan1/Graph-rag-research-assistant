@@ -206,14 +206,6 @@ LitGraph/
 
 The `vercel.json` is already configured.
 
-### Alternative: Railway or Render
-
-For better Python/FAISS support, consider:
-- **Railway**: Free $5 credit, better for heavier workloads
-- **Render**: Free tier with 512MB RAM
-
----
-
 ## Documentation
 
 See [TECHNICAL_DEEP_DIVE.md](TECHNICAL_DEEP_DIVE.md) for:
