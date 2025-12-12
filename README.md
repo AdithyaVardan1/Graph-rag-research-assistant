@@ -1,4 +1,4 @@
-# GraphRAG Research Assistant
+# LitGraph
 
 **AI-powered research assistant with GraphRAG** - explore and analyze academic papers through knowledge graphs with advanced retrieval techniques.
 
@@ -42,8 +42,8 @@
 
 ```bash
 # Clone the repository
-git clone https://github.com/AdithyaVardan1/Graph-rag-research-assistant.git
-cd Graph-rag-research-assistant
+git clone https://github.com/AdithyaVardan1/LitGraph.git
+cd LitGraph
 
 # Create virtual environment
 python -m venv venv
@@ -123,7 +123,7 @@ Open http://localhost:8000 in your browser.
 ## Project Structure
 
 ```
-Graph-rag-research-assistant/
+LitGraph/
 ├── backend/
 │   ├── agents/           # AI agent modules
 │   │   ├── chat_agent.py        # RAG Q&A with Corrective RAG

@@ -1,4 +1,4 @@
-# GraphRAG Research Assistant - Technical Deep Dive
+# LitGraph - Technical Deep Dive
 
 A comprehensive explanation of every component, the underlying mathematics, and a complete dry run from search query to final output.
 

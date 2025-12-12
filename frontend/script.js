@@ -1,5 +1,5 @@
 /**
- * GraphRAG Research Assistant - Frontend Script
+ * LitGraph - Frontend Script
  * 
  * Enhanced with:
  * - Entity graph visualization (GraphRAG)

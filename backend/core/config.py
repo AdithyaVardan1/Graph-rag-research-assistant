@@ -1,5 +1,5 @@
 """
-Centralized configuration for the Graph RAG Research Assistant.
+Centralized configuration for LitGraph.
 All settings are loaded from environment variables with sensible defaults.
 """
 import os

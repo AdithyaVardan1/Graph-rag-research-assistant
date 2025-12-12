@@ -1,5 +1,5 @@
 """
-Graph RAG Research Assistant - Main API Server
+LitGraph - Main API Server
 
 Enhanced with:
 - GraphRAG: Entity/relationship extraction and knowledge graph
