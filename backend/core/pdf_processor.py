@@ -1,6 +1,6 @@
 import fitz  # PyMuPDF
 import requests
-from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain_text_splitters import RecursiveCharacterTextSplitter
 from typing import List
 
 def process_pdf_from_url(pdf_url: str) -> List[str]:

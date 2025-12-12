@@ -1,40 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Graph RAG Assistant</title>
+    <meta name="description"
+        content="AI-powered research assistant with GraphRAG - explore academic papers through knowledge graphs">
+    <title>GraphRAG Research Assistant</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js" defer></script>
     <script src="script.js" defer></script>
 </head>
+
 <body>
     <div class="container">
         <div class="sidebar">
-            <h2>🚀 Research Assistant</h2>
-            <input type="text" id="topic-input" placeholder="e.g., network security">
-            <button id="build-btn">Build Knowledge Graph</button>
-            
+            <h2>🧠 GraphRAG Assistant</h2>
+            <input type="text" id="topic-input" placeholder="e.g., transformer attention" maxlength="200">
+
+            <div class="slider-container">
+                <label for="paper-count">Papers to fetch: <span id="paper-count-value">15</span></label>
+                <input type="range" id="paper-count" min="5" max="50" value="15" step="5">
+            </div>
+
+            <button id="build-btn">
+                <span class="btn-text">Build Knowledge Graph</span>
+                <span class="btn-loading" style="display: none;">
+                    <span class="spinner"></span> Building...
+                </span>
+            </button>
+
+            <!-- Graph View Toggle -->
+            <div class="view-toggle">
+                <button id="paper-view-btn" class="toggle-btn active">📄 Papers</button>
+                <button id="entity-view-btn" class="toggle-btn">🔗 Entities</button>
+            </div>
+
             <div class="agent-panel">
                 <h3>Agent Actions</h3>
                 <p id="selection-info">Select papers in the graph to activate.</p>
-                <button id="summarize-btn" disabled>Summarize Selected</button>
-                <button id="hypothesize-btn" disabled>Generate Hypothesis</button>
-                
+
+                <button id="summarize-btn" class="agent-btn" disabled>
+                    <span class="btn-text">📝 Summarize Selected</span>
+                    <span class="btn-loading" style="display: none;">
+                        <span class="spinner"></span> Processing...
+                    </span>
+                </button>
+
+                <button id="hypothesize-btn" class="agent-btn" disabled>
+                    <span class="btn-text">💡 Generate Hypothesis</span>
+                    <span class="btn-loading" style="display: none;">
+                        <span class="spinner"></span> Processing...
+                    </span>
+                </button>
+
+                <button id="themes-btn" class="agent-btn" disabled>
+                    <span class="btn-text">🏷️ Extract Key Themes</span>
+                    <span class="btn-loading" style="display: none;">
+                        <span class="spinner"></span> Processing...
+                    </span>
+                </button>
+
                 <div class="chat-interface">
-                    <input type="text" id="chat-input" placeholder="Chat with selected papers..." disabled>
-                    <button id="chat-btn" disabled>Send</button>
+                    <input type="text" id="chat-input" placeholder="Ask about selected papers..." disabled>
+                    <button id="chat-btn" disabled>
+                        <span class="btn-text">Send</span>
+                        <span class="btn-loading" style="display: none;">
+                            <span class="spinner"></span>
+                        </span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Stats Panel -->
+            <div class="stats-panel" id="stats-panel" style="display: none;">
+                <h4>GraphRAG Stats</h4>
+                <div class="stat-item">
+                    <span class="stat-label">Papers:</span>
+                    <span class="stat-value" id="stat-papers">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Entities:</span>
+                    <span class="stat-value" id="stat-entities">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Relationships:</span>
+                    <span class="stat-value" id="stat-relationships">0</span>
                 </div>
             </div>
         </div>
+
         <div class="main-content">
             <div id="graph-container">
-                <div id="message-box">Enter a topic to begin...</div>
+                <div id="message-box">Enter a research topic to build your knowledge graph...</div>
+                <div id="graph-tooltip" class="tooltip" style="display: none;"></div>
+                <div id="graph-legend" class="legend" style="display: none;">
+                    <div class="legend-title">Paper Graph</div>
+                    <div class="legend-item">
+                        <span class="legend-node small"></span>
+                        <span>Fewer connections</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-node large"></span>
+                        <span>Hub paper</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-edge thin"></span>
+                        <span>Lower similarity</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-edge thick"></span>
+                        <span>High similarity</span>
+                    </div>
+                </div>
+                <!-- Entity Legend (for entity view) -->
+                <div id="entity-legend" class="legend" style="display: none;">
+                    <div class="legend-title">Entity Graph</div>
+                    <div class="legend-item">
+                        <span class="legend-node concept"></span>
+                        <span>Concept</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-node method"></span>
+                        <span>Method</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-node dataset"></span>
+                        <span>Dataset</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-edge relation"></span>
+                        <span>Relationship</span>
+                    </div>
+                </div>
             </div>
             <div id="output-container" style="display: none;">
+                <div id="output-header">
+                    <span id="output-title">Response</span>
+                    <button id="close-output" title="Close">×</button>
+                </div>
                 <pre id="output-box"></pre>
             </div>
         </div>
     </div>
 </body>
+
 </html>

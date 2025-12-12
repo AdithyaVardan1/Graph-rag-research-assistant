@@ -16,13 +16,12 @@ class GraphBuilder:
         if vectors.size == 0:
             return {"nodes": [], "edges": []}
             
-        # Vectors are already normalized from faiss_store
         similarity_matrix = np.dot(vectors, vectors.T)
 
         nodes = []
         for item in all_data:
             node_data = item.copy()
-            node_data.pop("embedding", None) # Remove embedding from node data
+            node_data.pop("embedding", None) 
             nodes.append(node_data)
 
         edges = []

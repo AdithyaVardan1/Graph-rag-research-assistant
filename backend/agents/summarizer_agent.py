@@ -1,27 +1,38 @@
-from groq import Groq
-import os
+"""
+Summarizer Agent - Generates consolidated summaries of research papers.
+"""
+import logging
 from typing import List, Dict
+from core.llm_client import generate_completion, build_context_from_papers
 
-client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
+logger = logging.getLogger(__name__)
+
+SYSTEM_PROMPT = """You are a research assistant specializing in academic paper analysis. 
+Provide clear, concise summaries that highlight key findings and themes."""
 
 def summarize_papers(papers: List[Dict]) -> str:
+    """
+    Generate a consolidated summary of the provided papers.
+    
+    Args:
+        papers: List of paper dicts with 'title' and 'summary' keys
+        
+    Returns:
+        A consolidated summary string
+    """
     if not papers:
         return "No papers selected to summarize."
 
-    context = ""
-    for i, paper in enumerate(papers, 1):
-        context += f"Paper {i}:\nTitle: {paper.get('title', 'N/A')}\nSummary: {paper.get('summary', 'N/A')}\n\n"
-
-    prompt = f"""
-    Based on the following research papers, provide a concise, consolidated summary of the key findings and themes.
+    context = build_context_from_papers(papers)
     
-    {context}
-    
-    Consolidated Summary:
-    """
+    prompt = f"""Based on the following research papers, provide a concise, consolidated summary of the key findings and themes.
 
-    chat_completion = client.chat.completions.create(
-        messages=[{"role": "user", "content": prompt}],
-        model="llama-3.3-70b-versatile",
-    )
-    return chat_completion.choices[0].message.content
+{context}
+
+Consolidated Summary:"""
+
+    try:
+        return generate_completion(prompt, SYSTEM_PROMPT)
+    except Exception as e:
+        logger.error(f"Summarization failed: {e}")
+        return f"Error generating summary: {str(e)}"
