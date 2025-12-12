@@ -101,8 +101,8 @@ def get_knowledge_graph(session_id: Optional[str] = None) -> KnowledgeGraph:
 
 # --- FastAPI App ---
 app = FastAPI(
-    title="Graph RAG Research Assistant",
-    description="AI-powered research paper analysis with knowledge graph visualization",
+    title="LitGraph",
+    description="AI-powered literature graph with GraphRAG for research paper analysis",
     version="2.0.0"
 )
 
