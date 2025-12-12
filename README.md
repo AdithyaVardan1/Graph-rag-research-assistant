@@ -8,7 +8,7 @@
 
 ---
 
-## 🌟 Features
+## Features
 
 ### Core Capabilities
 - 🔍 **Paper Discovery**: Search arXiv for research papers on any topic
@@ -19,7 +19,7 @@
 - 🏷️ **Theme Extraction**: Extract key themes and technical concepts
 - 💬 **Paper Chat**: Ask questions about your selected papers using RAG
 
-### Advanced AI Features (v2.0)
+### Updates (v2.0)
 
 | Feature | Description |
 |---------|-------------|
